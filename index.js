@@ -22,6 +22,7 @@ closeMenu.addEventListener('click', () => {
 window.addEventListener('resize', resize);
 resize();
 
+// JavaScript for changing content and image in the header
 
 const header = document.querySelector('header');
 const titleElement = document.querySelector('.title_text');

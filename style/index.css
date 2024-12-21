@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "League Spartan", serif;
+  list-style: none;
+}
+
+header {
+  position: relative;
+  background-image: url(../images/mobile-image-hero-1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 55vh;
+  padding: 2rem;
+  z-index: 2;
+}
+
+.header_top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header_top .openMenu {
+  cursor: pointer;
+}
+.header_top .logo {
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.mobile_wrap {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.mobile_wrap.visible {
+  visibility: visible;
+  opacity: 1;
+}
+.mobile_wrap .closeMenu {
+  cursor: pointer;
+}
+.mobile_wrap .mobile_menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2rem 1rem 2rem 2rem;
+  margin: 0;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 0%);
+}
+.mobile_wrap .mobile_menu ul {
+  display: flex;
+  gap: 2rem;
+}
+.mobile_wrap .mobile_menu ul li {
+  cursor: pointer;
+}
+
+.nav_desktop {
+  display: none;
+  color: hsl(0, 0%, 100%);
+}
+
+.angle_rows {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  justify-self: end;
+  background-color: hsl(0, 0%, 0%);
+  padding: 1rem;
+  z-index: 1;
+}
+.angle_rows .angle-left, .angle_rows .angle-right {
+  cursor: pointer;
+}
+
+section {
+  padding: 2rem;
+  margin-top: 1rem;
+}
+section h2 {
+  font-size: 2rem;
+  color: hsl(0, 0%, 0%);
+  margin-bottom: 1rem;
+}
+section p {
+  line-height: 1rem;
+  font-size: 12px;
+  color: hsl(0, 0%, 63%);
+  margin-bottom: 2rem;
+}
+section button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  color: hsl(0, 0%, 0%);
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+section button span {
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.5rem;
+  font-weight: 600;
+}
+
+.card_img_dark img, .card_img_light img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card_content {
+  padding: 2rem;
+}
+.card_content h3 {
+  font-size: 15px;
+  color: hsl(0, 0%, 0%);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+}
+.card_content p {
+  color: hsl(0, 0%, 63%);
+  font-size: 12px;
+  line-height: 1rem;
+}
+
+@media (min-width: 768px) {
+  header {
+    height: 70vh;
+  }
+  section p {
+    font-size: 18px;
+    line-height: 1.5rem;
+  }
+  .card_content h3 {
+    font-size: 20px;
+  }
+  .card_content p {
+    font-size: 18px;
+    line-height: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+  .container section {
+    width: 40%;
+  }
+  header {
+    height: 65vh;
+    display: flex;
+    gap: 2rem;
+    flex: 1;
+  }
+  header .header_top {
+    display: inline;
+  }
+  header .header_top .openMenu {
+    display: none;
+  }
+  .nav_desktop {
+    display: block;
+  }
+  .nav_desktop ::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 3px;
+    background-color: hsl(0, 0%, 63%);
+    margin: 1rem 0;
+    transition: all 0.5s ease;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .nav_desktop :hover::after {
+    width: 100%;
+    background-color: hsl(0, 0%, 0%);
+  }
+  .nav_desktop ul {
+    display: flex;
+    gap: 2rem;
+  }
+  .nav_desktop ul li {
+    cursor: pointer;
+  }
+  .angle_rows {
+    right: -8.7rem;
+    gap: 5rem;
+  }
+  .card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card .card_content {
+    width: 60%;
+    padding: 2rem;
+  }
+  .card .card_img_dark, .card .card_img_light {
+    width: 40%;
+    height: 35vh;
+  }
+}/*# sourceMappingURL=index.css.map */

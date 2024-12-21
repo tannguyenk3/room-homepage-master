@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
+
+$dark-gray: hsl(0, 0%, 63%);
+$black: hsl(0, 0%, 0%);
+$white: hsl(0, 0%, 100%);
+$very-dark-gray: hsl(0, 0%, 27%);
+
+$font-size: 12px;
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "League Spartan", serif;
+    list-style: none;
+}
+
+header {
+    position: relative;
+    background-image: url(../images/mobile-image-hero-1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;   
+    width: 100%;
+    height: 55vh;
+    padding: 2rem;
+    z-index: 2;
+}
+
+.header_top {
+    @include flexCenter;
+    .openMenu {
+        cursor: pointer;
+    }
+    .logo {
+        cursor: pointer;
+        margin: 0 auto;
+    }
+}
+
+.mobile_wrap {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    &.visible {
+        visibility: visible;
+        opacity: 1;
+    }
+    .closeMenu {
+        cursor: pointer;
+    }
+    .mobile_menu {
+        @include flexCenter;
+        justify-content: space-between;
+        width: 100%;
+        gap: 1rem;
+        height: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 2rem 1rem 2rem 2rem;
+        margin: 0;
+        background-color: $white;
+        color: $black; 
+        ul {
+            display: flex;
+            gap: 2rem;
+            li {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.nav_desktop {
+    display: none;
+    color: $white;
+}
+
+.angle_rows {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    justify-self: end;
+    background-color: $black;
+    padding: 1rem;
+    z-index: 1;
+    .angle-left, .angle-right {
+        cursor: pointer;
+    }
+}
+
+section {
+    padding: 2rem;
+    margin-top: 1rem;
+    h2 {
+        font-size: 2rem;
+        color: $black;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        line-height: 1rem;
+        font-size: $font-size;
+        color: $dark-gray;
+        margin-bottom: 2rem;
+    }
+
+    button {
+        @include flexCenter;
+        gap: 2rem;
+        color: $black;
+        border: none;
+        cursor: pointer;
+        background-color: transparent;
+        span {
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 0.5rem;
+            font-weight: 600;
+        }
+    }
+}
+
+.card_img_dark, .card_img_light {
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.card_content {
+    padding: 2rem;
+    h3 {
+        font-size: 15px;
+        color: $black;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.3rem;
+    }
+
+    p {
+        color: $dark-gray;
+        font-size: $font-size;
+        line-height: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    header {
+        height: 70vh;
+    }
+    section p {
+        font-size: 18px;
+        line-height: 1.5rem;
+    }
+
+    .card_content {
+        h3 {
+            font-size: 20px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.5rem;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        display: flex;
+        gap: 2rem;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        
+        section {
+            width: 40%;
+        }
+    }
+    
+    header {
+        height: 65vh;
+        display: flex;
+        gap: 2rem;
+        flex: 1;
+        .header_top {
+            display: inline;
+            .openMenu {
+                display: none;
+            }
+        }
+    }
+
+    .nav_desktop {
+        display: block;
+        ::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 3px;
+            background-color: $dark-gray;
+            margin: 1rem 0;
+            transition: all 0.5s ease;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        :hover::after {
+            width: 100%;
+            background-color: $black;
+        }
+        ul {
+            display: flex;
+            gap: 2rem;
+            li {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .angle_rows {
+        right: -8.7rem;
+        gap: 5rem;
+    }
+
+    .card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .card_content {
+            width: 60%;
+            padding: 2rem;
+        }
+        .card_img_dark, .card_img_light {
+            width: 40%;
+            height: 35vh;
+        }
+    }
+}
